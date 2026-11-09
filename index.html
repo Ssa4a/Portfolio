@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sasa | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<noscript><style>#loader{display:none}.scroll-reveal{opacity:1!important;filter:none!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<!-- ================= LOADING SCREEN (animasinya ada di css/style.css & js/loader.js) ================= -->
+<div id="loader" role="status" aria-live="polite">
+  <div class="ld">
+    <div class="ld-name" data-name>Sasa</div>
+    <div class="ld-track"><div class="ld-bar" id="ldBar"></div></div>
+    <div class="ld-num"><span id="ldNum">0</span>%</div>
+  </div>
+</div>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<nav aria-label="Menu utama">
+  <a href="#home" class="on">Home</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= HOME ================= -->
+<header class="hero" id="home">
+  <div>
+    <h1>Welcome to<span>My Portfolio</span></h1>
+    <div class="role" id="role"></div>
+    <!-- GANTI kalimat perkenalan di bawah dengan kata-katamu sendiri -->
+    <p>Hi, hello, bonjour! I’m Sasa. I love designing user interfaces in Figma, and sometimes I build them into websites myself, too. Lately I’ve also become interested in data analytics and joined a data analyst bootcamp. Thank you, terima kasih, merci!</p>
+    <div class="row">
+      <a class="btn" href="#portfolio">Projects</a>
+      <!-- <a class="btn ghost" href="#contact">Hubungi Saya</a> -->
+    </div>
+  </div>
+
+  <!-- Lanyard: tarik kartunya pakai mouse/jari, lepas = mental (kode ada di js/main.js) -->
+  <div class="lan" id="lan">
+    <!-- Ceiling anchor bracket at the top edge of screen -->
+    <div class="lan-anchor" aria-hidden="true">
+      <div class="lan-anchor-plate"></div>
+    </div>
+
+    <!-- Dynamic SVG Rope with woven ribbon, stitches, textPath, and shadows -->
+    <svg id="lanSvg" aria-hidden="true">
+      <defs>
+        <linearGradient id="strapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#121215"/>
+          <stop offset="20%" stop-color="#2a2a34"/>
+          <stop offset="50%" stop-color="#18181e"/>
+          <stop offset="80%" stop-color="#2a2a34"/>
+          <stop offset="100%" stop-color="#121215"/>
+        </linearGradient>
+        <pattern id="twill" width="6" height="6" patternUnits="userSpaceOnUse">
+          <path d="M0 6L6 0M0 3L3 0M3 6L6 3" stroke="rgba(255,255,255,0.07)" stroke-width="1.2"/>
+        </pattern>
+        <filter id="ribbonShadow" x="-30%" y="-10%" width="160%" height="130%">
+          <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+        </filter>
+      </defs>
+      <!-- Shadow path -->
+      <path id="strapShadow" fill="none" stroke="#000" stroke-width="34" stroke-linecap="round" opacity="0.4" filter="url(#ribbonShadow)"/>
+      <!-- Main Strap -->
+      <path id="strapBase" fill="none" stroke="url(#strapGrad)" stroke-width="32" stroke-linecap="round"/>
+      <!-- Woven Twill Texture Overlay -->
+      <path id="strapPattern" fill="none" stroke="url(#twill)" stroke-width="30" stroke-linecap="round"/>
+      <!-- Left & Right Fine Stitches -->
+      <path id="stitchL" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.2" stroke-dasharray="3,3"/>
+      <path id="stitchR" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.2" stroke-dasharray="3,3"/>
+      <!-- Ribbon Centerline & Typography -->
+      <path id="strapPath" fill="none" stroke="none"/>
+      <text class="strap-text" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="9" fill="rgba(255,255,255,0.72)" letter-spacing="2.8">
+        <textPath id="strapText" href="#strapPath" startOffset="50%" text-anchor="middle">
+          ✦ SASA ✦ UI/UX DESIGNER ✦ FRONT-END DEV ✦ TELKOM UNIVERSITY ✦
+        </textPath>
+      </text>
+    </svg>
+
+    <!-- Card with Realistic Hardware Clip & 3D Interactive Badge -->
+    <div class="id" id="card">
+      <!-- Metallic Hardware (Clamp, Swivel Carabiner Hook, Ring) -->
+      <div class="card-hardware" aria-hidden="true">
+        <div class="strap-clamp"></div>
+        <div class="swivel-hook">
+          <div class="hook-loop"></div>
+          <div class="hook-body">
+            <div class="hook-clasp"></div>
+          </div>
+        </div>
+        <div class="card-ring"></div>
+      </div>
+
+      <div class="badge">
+        <!-- Holographic Glare Layer -->
+        <div class="badge-glare" aria-hidden="true"></div>
+
+        <!-- Top Bezel with Punch Hole -->
+        <div class="badge-slot" aria-hidden="true">
+          <div class="slot-hole"></div>
+        </div>
+
+        <!-- Pass Header Info -->
+        <div class="badge-header">
+          <div class="badge-status">
+            <span class="status-dot"></span>
+            <span>ACTIVE</span>
+          </div>
+          <div class="badge-pass-type">CREATIVE PASS</div>
+        </div>
+
+        <!-- Interactive Photo Frame (Supports hover & Venom toggle) -->
+        <div class="photo-frame">
+          <div class="corner-mark top-left" aria-hidden="true"></div>
+          <div class="corner-mark top-right" aria-hidden="true"></div>
+          <div class="corner-mark btm-left" aria-hidden="true"></div>
+          <div class="corner-mark btm-right" aria-hidden="true"></div>
+          <div class="photo"></div>
+        </div>
+
+        <!-- Name & Title -->
+        <div class="badge-info">
+          <div class="name" data-name></div>
+          <div class="badge-role-pill">
+            <span data-title></span>
+          </div>
+        </div>
+
+        <!-- Badge Metadata Row -->
+        <div class="badge-meta">
+          <div class="meta-item">
+            <span class="meta-label">ID NO.</span>
+            <span class="meta-val">#2026-SASA</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ORG</span>
+            <span class="meta-val">TEL-U SBY</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">STATUS</span>
+            <span class="meta-val">VERIFIED</span>
+          </div>
+        </div>
+
+        <!-- Footer: Barcode + Security Holographic Foil Strip -->
+        <div class="badge-footer">
+          <div class="badge-barcode" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="badge-holo-strip" aria-hidden="true">
+            <span class="holo-text">OFFICIAL ACCESS • 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about">
+    <div>
+      <h3>Hi, I’m<span data-name></span></h3>
+      <div class="row"><a class="btn" href="#contact">Let's Talk</a></div>
+    </div>
+    <!-- Foto About Me: Interaktif dengan background removed / cutout & floating designer stickers -->
+    <div class="about-portrait" id="aboutPortrait">
+      <div class="portrait-aura" aria-hidden="true"></div>
+      
+      <!-- Floating interactive designer stickers that pop out on hover -->
+      <div class="portrait-badges" aria-hidden="true">
+        <div class="p-badge p-badge-figma">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5.5 2h5a3.5 3.5 0 0 1 0 7h-5a3.5 3.5 0 0 1 0-7zM5.5 9h5a3.5 3.5 0 0 1 0 7h-5a3.5 3.5 0 0 1 0 7zM5.5 16h5a3.5 3.5 0 1 1-3.5 3.5v-3.5h-1.5z" fill="#0acf83"/><circle cx="15.5" cy="12.5" r="3.5" fill="#18a0fb"/></svg>
+          <span>Sasa (Designing)</span>
+        </div>
+        <div class="p-badge p-badge-dev">
+          <span class="p-dot"></span>
+          <span>&lt;creative-dev /&gt;</span>
+        </div>
+        <div class="p-badge p-badge-yap">
+          <span>☕ Loves Yapping 💬</span>
+        </div>
+        <div class="p-sparkle s1">✦</div>
+        <div class="p-sparkle s2">✦</div>
+      </div>
+
+      <div class="portrait-img-box">
+        <img id="aboutImg" src="" alt="Foto Sasa" draggable="false">
+      </div>
+    </div>
+    <div>
+      <!-- GANTI teks perkenalan About -->
+      <p>I’m a <strong>Junior UI/UX Designer</strong> and <strong>Junior Front-End Developer</strong> studying Informatics at Telkom University Surabaya.</p>
+      <p>Design is my first language, code is my second, and data is the third one I’m learning. Call me Sasa: I love creating interfaces in Figma and then bringing them to life myself with HTML, CSS, and JavaScript. I’m active in organizations, committees, and content creation, so I’m used to working with lots of people, and yes, n btw I love yapping, haha.</p>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div><h4>Education</h4><div id="edu"></div></div>
+    <div><h4>Experience</h4><div id="exp"></div></div>
+  </div>
+
+  <!-- SPOTIFY: isi playlistId di js/data.js, nanti player muncul otomatis di sini -->
+  <div class="card music">
+    <div>
+      <h3>A little sad music.<br><span>A lot of ideas.</span></h3>
+    </div>
+    <div id="spotify"></div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="panel"></div>
+</section>
+
+</main>
+
+<!-- ================= CONTACT ================= -->
+<footer id="contact"><div class="wrap">
+  <h2>Contact Me</h2>
+  <p>Open for internships, collaborations, and discussions.</p>
+  <div class="row social-links" id="clinks"></div>
+  <p class="copy">© 2026 <span data-name></span></p>
+</div></footer>
+
+<!-- ================= PROJECT CASE STUDY & FIGMA PROTOTYPE MODAL ================= -->
+<div id="projectModal" class="p-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+  <div class="p-modal-backdrop" id="modalBackdrop"></div>
+  <div class="p-modal-dialog">
+    <button class="p-modal-close" id="modalClose" aria-label="Close modal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="p-modal-body" id="modalContent"></div>
+  </div>
+</div>
+
+<script src="js/loader.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
