@@ -12,7 +12,7 @@ portfolio/
 │   ├── data.js       SEMUA ISI: nama, foto, projek, sertifikat, spotify, dll  <-- edit di sini
 │   └── main.js       animasi (lanyard, mengetik, tab)
 └── images/
-    ├── profile/      foto.png, foto-venom.png
+    ├── profile/      foto.png
     ├── projects/     gambar projek
     ├── certificates/ gambar sertifikat
     ├── achievements/ gambar penghargaan
